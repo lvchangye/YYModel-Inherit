@@ -546,7 +546,8 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
     NSMutableArray *keyPathPropertyMetas = [NSMutableArray new];
     NSMutableArray *multiKeysPropertyMetas = [NSMutableArray new];
     
-    if ([cls respondsToSelector:@selector(modelCustomPropertyMapper)]) {
+    Class nowClass = cls;
+    while (nowClass&&[nowClass respondsToSelector:@selector(modelCustomPropertyMapper)]) {
         NSDictionary *customMapper = [(id <YYModel>)cls modelCustomPropertyMapper];
         [customMapper enumerateKeysAndObjectsUsingBlock:^(NSString *propertyName, NSString *mappedToKey, BOOL *stop) {
             _YYModelPropertyMeta *propertyMeta = allPropertyMetas[propertyName];
@@ -601,6 +602,7 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
                 mapper[mappedToKey] = propertyMeta;
             }
         }];
+        nowClass = class_getSuperclass(nowClass);
     }
     
     [allPropertyMetas enumerateKeysAndObjectsUsingBlock:^(NSString *name, _YYModelPropertyMeta *propertyMeta, BOOL *stop) {
