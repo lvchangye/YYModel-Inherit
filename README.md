@@ -1,4 +1,4 @@
-YYModel
+YYModel(Support Inherit)
 ==============
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/ibireme/YYModel/master/LICENSE)&nbsp;
