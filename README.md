@@ -1,5 +1,6 @@
 YYModel(Support Inherit)
 ==============
+针对父类的modelCustomPropertyMapper方法未生效问题进行优化，若子父类的该方法中均指定了相同属性名,以子类为准。
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/ibireme/YYModel/master/LICENSE)&nbsp;
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)&nbsp;
